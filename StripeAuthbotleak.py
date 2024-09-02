@@ -218,7 +218,7 @@ def check_card(card_details, username_tg, session):
 @client.on(events.NewMessage(pattern='/start'))
 async def start(event):
     if not is_authorized(event.sender_id):
-        await event.respond("🚫 You are not authorized to use this bot.\n- Contact @")
+        await event.respond("🚫 You are not authorized to use this bot.\n- Contact @FNxDANGER")
         return
     await event.respond("👋🏻 Hey! Send me a .txt file containing the cards, one per line.\n\nDeveloper: @")
 
@@ -299,7 +299,7 @@ async def handle_file(event):
                 approved.append(response)
                 approved_count += 1
                 await client.send_message(event.chat_id, response, buttons=[
-                    [Button.url("🚀", "https://t.me/"), Button.url("SUPPORT ✨", "https://t.me/+HxoWBug3BxIxNzM1")]
+                    [Button.url("🚀", "https://t.me/"), Button.url("SUPPORT ✨", "https://t.me/+tgAJvJLcjPJjNWVl")]
                 ], link_preview=False)
             else:
                 declined.append(response)
@@ -314,19 +314,19 @@ async def handle_file(event):
                 [Button.inline(f"- Dev. @ -", b"show_dev")],
             ]
             await status_message.edit(
-                f"📋 Processing:\n- Dev: @",
+                f"📋 Processing:\n- Dev: @FNXDANGER",
                 buttons=buttons
             )
 
         user_results[event.chat_id] = {
             'approved': approved,
             'declined': declined,
-            'summary': f"**⏳ Total Cards:** `{len(cards)}`\n**✅ Approved:** {approved_count}\n**❌ Dead:** `{declined_count}`\n\n`Dev. @ 👑`"
+            'summary': f"**⏳ Total Cards:** `{len(cards)}`\n**✅ Approved:** {approved_count}\n**❌ Dead:** `{declined_count}`\n\n`Dev. @FNXDANGER 👑`"
         }
 
         if not user_stop_signals.get(event.sender_id, False):
             await event.respond(
-                f"✅ All cards checked:\nApproved: {approved_count}\nDeclined: {declined_count}\n\n- Dev: @"
+                f"✅ All cards checked:\nApproved: {approved_count}\nDeclined: {declined_count}\n\n- Dev: @FNXDANGER"
             )
 
         os.remove(file_path)
@@ -335,7 +335,7 @@ async def handle_file(event):
 @client.on(events.CallbackQuery)
 async def callback(event):
     if not is_authorized(event.sender_id):
-        await event.respond("🚫 You are not authorized to use this bot.")
+        await event.respond("🚫 You are not authorized to use this bot, Contact @FNxDANGER.")
         return
     user_data = user_results.get(event.chat_id, {})
 
@@ -348,7 +348,7 @@ async def callback(event):
     elif event.data == b"show_summary":
         await event.respond(user_data.get('summary', "No summary available."))
     elif event.data == b"show_dev":
-        await event.respond("🚀 t.me/\n\n Join @ for more!") 
+        await event.respond("🚀 t.me/\n\n Join @FnXDanger for more!") 
 
 print("Bot started!")
 client.run_until_disconnected()
