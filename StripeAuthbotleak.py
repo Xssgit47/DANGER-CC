@@ -19,7 +19,7 @@ user_results = {}
 user_sessions = {}
 
 authorized_users_file = "authorized_users.txt"
-admin_id = '7353019847'
+admin_id = '7345260405'
 
 # Auth Logics
 def random_user_agent():
