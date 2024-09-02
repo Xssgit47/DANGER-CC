@@ -19,7 +19,7 @@ user_results = {}
 user_sessions = {}
 
 authorized_users_file = "authorized_users.txt"
-admin_id = '7345260405'
+admin_id = '7353019847'
 
 # Auth Logics
 def random_user_agent():
@@ -181,7 +181,7 @@ def check_card(card_details, username_tg, session):
                     f"**[[ϟ](t.me/)] Req by** `@{username_tg}` | [PRO]\n"
                     f"**[[ϟ](t.me/)] Proxy: Live ✅**\n"
                     f"━━━━━━━━━━━━━\n"
-                    f"`Dev: @ 👑`", "requires_otp")
+                    f"`Dev: @FNXDANGER 👑`", "requires_otp")
     else:
         site_status = confirm_response.text.strip()
 
@@ -207,7 +207,7 @@ def check_card(card_details, username_tg, session):
                     f"**[[ϟ](t.me/)] Req by** `@{username_tg}` | [PRO]\n"
                     f"**[[ϟ](t.me/)] Proxy: Live ✅**\n"
                     f"━━━━━━━━━━━━━\n"
-                    f"`Dev: @ 👑`", "Success")
+                    f"`Dev: @FNXDANGER 👑`", "Success")
         else:
             return f"Approved - {cc}|{mes}|{ano}|{cvv} (BIN lookup failed)", "Success"
     elif "Your card was declined." in site_status:
@@ -299,7 +299,7 @@ async def handle_file(event):
                 approved.append(response)
                 approved_count += 1
                 await client.send_message(event.chat_id, response, buttons=[
-                    [Button.url("🚀", "https://t.me/"), Button.url("SUPPORT ✨", "https://t.me/+tgAJvJLcjPJjNWVl")]
+                    [Button.url("🚀", "https://t.me/fnxdanger"), Button.url("SUPPORT ✨", "https://t.me/+tgAJvJLcjPJjNWVl")]
                 ], link_preview=False)
             else:
                 declined.append(response)
