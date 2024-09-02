@@ -220,7 +220,7 @@ async def start(event):
     if not is_authorized(event.sender_id):
         await event.respond("🚫 You are not authorized to use this bot.\n- Contact @FNxDANGER")
         return
-    await event.respond("👋🏻 Hey! Send me a .txt file containing the cards, one per line.\n\nDeveloper: @")
+    await event.respond("👋🏻 Hey! Send me a .txt file containing the cards, one per line.\n\nDeveloper: @FNXDANGER")
 
 @client.on(events.NewMessage(pattern='/auth'))
 async def handle_auth(event):
