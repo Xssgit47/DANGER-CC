@@ -5,9 +5,9 @@ import string
 from telethon import TelegramClient, events, Button
 import os
 
-api_id = 'api id here'
-api_hash = 'api hash here'
-bot_token = 'Bot Token Here'
+api_id = '19082916'
+api_hash = 'ba584795667a2a207a72e6a5cd6e0711'
+bot_token = '7394684214:AAHFifQUQdt_Ukje6iKaCJKgMrpcDWX7lZE'
 
 # Chut Started
 client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
@@ -19,7 +19,7 @@ user_results = {}
 user_sessions = {}
 
 authorized_users_file = "authorized_users.txt"
-admin_id = 'id'
+admin_id = '7345260405'
 
 # Auth Logics
 def random_user_agent():
