@@ -5,9 +5,9 @@ import string
 from telethon import TelegramClient, events, Button
 import os
 
-api_id = '19082916'
-api_hash = 'ba584795667a2a207a72e6a5cd6e0711'
-bot_token = '7394684214:AAHFifQUQdt_Ukje6iKaCJKgMrpcDWX7lZE'
+api_id = '23418117'
+api_hash = 'e93479e4b3eae090bf90a978b14ffc09'
+bot_token = '7212697504:AAGh8-N8YIKZE5fqv7WoSBJwX1Lg4zlvHI0'
 
 # Chut Started
 client = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
