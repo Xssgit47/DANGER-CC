@@ -16,7 +16,8 @@ async def cmd_plan1(Client, message):
         try:
             with open(config_file_path, "r", encoding="utf-8") as f:
                 config = json.load(f)
-                OWNER_ID = config["OWNER_ID"]
+                OWNER_ID_LIST = config["OWNER_ID"] # Get the list
+                OWNER_ID = OWNER_ID_LIST[0]        # Extract the first element
         except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
             await error_log(f"Config file error: {e}")
             return # Exit early if config is bad
