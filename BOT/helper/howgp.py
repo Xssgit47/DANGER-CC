@@ -6,7 +6,7 @@ from FUNC.defs import *
 async def cmd_howgp(Client, message):
     try:
         texta = f"""<b>
-TO THIS ADD THIS BOT TO YOUR GROUP -
+TO ADD THIS BOT TO YOUR GROUP -
 
 Requirements: <b>Your Group Must Have Atleast 50 Members.</b>
 
