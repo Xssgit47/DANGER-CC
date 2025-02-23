@@ -1,11 +1,11 @@
 {
-    "API_ID"       :  "23418117",
-    "API_HASH"     :  "e93479e4b3eae090bf90a978b14ffc09",
-    "PHONE_NUMBER" :  "",
-    "BOT_TOKEN"    :  "7595971863:AAEpBqA2OGRMxxXLpNsQmhAxuVEnW464AhQ",
-    "DEBUG_BOT"    :  "6967383365:AAE5uqpGWq_nWhF7-WdX8hzz3KWB7UMPuqs",
-    "OWNER_ID"     : [7345260405, 7592199791, 987654321],
-    "LOGS_CHAT"    :  "-1002197681899",
-    "THREADS"      :   15,
-    "BOT_BY"       :  "Bot - <a href=\"tg://user?id=7345260405\">FNxDANGER</a>"
+  "API_ID": 23418117,
+  "API_HASH": "e93479e4b3eae090bf90a978b14ffc09",
+  "PHONE_NUMBER": "",
+  "BOT_TOKEN": "7595971863:AAEpBqA2OGRMxxXLpNsQmhAxuVEnW464AhQ",
+  "DEBUG_BOT": "6967383365:AAE5uqpGWq_nWhF7-WdX8hzz3KWB7UMPuqs",
+  "OWNER_ID": [7345260405],
+  "LOGS_CHAT": -1002197681899,
+  "THREADS": 15,
+  "BOT_BY": "Bot - <a href=\"tg://user?id=7345260405\">FNxDANGER</a>"
 }
