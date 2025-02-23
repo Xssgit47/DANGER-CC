@@ -27,7 +27,7 @@ async def showuser(Client, message):
     try:
         user_id = str(message.from_user.id)
         OWNER_ID = json.loads(
-            open("FILES/config.json", "r", encoding="utf-8").read())["7345260405"]
+            open("FILES/config.json", "r", encoding="utf-8").read())["OWNER_ID"]
         if user_id not in OWNER_ID:
             resp = """𝐏𝐫𝐢𝐯𝐢𝐥𝐞𝐠𝐞 𝐍𝐨𝐭 𝐅𝐨𝐮𝐧𝐝 ⚠️
 
