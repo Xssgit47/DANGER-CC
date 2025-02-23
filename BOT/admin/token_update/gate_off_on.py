@@ -6,7 +6,7 @@ from FUNC.defs import error_log
 async def update_dead_amount(Client, message):
     try:
         user_id = str(message.from_user.id)
-        OWNER_ID = json.loads(open("FILES/config.json", "r", encoding="utf-8").read())["7345260405"]
+        OWNER_ID = json.loads(open("FILES/config.json", "r", encoding="utf-8").read())["OWNER_ID"]
         if user_id not in OWNER_ID:
             resp = """<b>Privilege Not Found ⚠️
 
