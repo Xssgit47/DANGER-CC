@@ -9,14 +9,15 @@ import os
 async def cmd_plan2(Client, message):
     try:
         # *** 1. Load Configuration ***
-        try:
-            with open("FILES/config.json", "r", encoding="utf-8") as f:
-                config = json.load(f)
-            OWNER_ID = config["owner_info"]["OWNER_ID"]  # Direct access, no list
-        except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
-            print(f"Config file error: {e}")
-            await message.reply_text("Config file error. Check the logs.")
-            return
+            try:
+        with open("FILES/config.json", "r", encoding="utf-8") as f:
+            config = json.load(f)
+        OWNER_ID = config["owner_info"]["owner_id"]  # Direct access, no list
+    except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
+        print(f"Config file error: {e}")
+        await message.reply_text("Config file error. Check the logs.")
+        return
+    
 
         # *** 2. Debugging Prints ***
         print(f"cmd_plan2 triggered")
