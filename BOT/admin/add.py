@@ -6,7 +6,7 @@ from FUNC.usersdb_func import *
 async def cmd_add(client, message):
     try:
         user_id = str(message.from_user.id)
-        OWNER_ID = json.loads(open("FILES/config.json", "r", encoding="utf-8").read())["7345260405"]
+        OWNER_ID = json.loads(open("FILES/config.json", "r", encoding="utf-8").read())["OWNER_ID"]
         if user_id not in OWNER_ID:
             resp = (
                 "<b>⛔️ Access Denied</b>\n\n"
