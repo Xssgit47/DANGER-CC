@@ -2,13 +2,13 @@ from pyrogram import Client
 import json
 from FUNC.server_stats import *
 
-plugins = dict(root="7595971863:AAEpBqA2OGRMxxXLpNsQmhAxuVEnW464AhQ")
+plugins = dict(root="BOT")
 
 with open("FILES/config.json", "r", encoding="utf-8") as f:
     DATA      = json.load(f)
-    API_ID    = DATA["23418117"]
-    API_HASH  = DATA["e93479e4b3eae090bf90a978b14ffc09"]
-    BOT_TOKEN = DATA["7595971863:AAEpBqA2OGRMxxXLpNsQmhAxuVEnW464AhQ"]
+    API_ID = DATA["API_ID"]
+    API_HASH  = DATA["API_HASH"]
+    BOT_TOKEN = DATA["BOT_TOKEN"]
 
 user = Client( 
             "Scrapper", 
