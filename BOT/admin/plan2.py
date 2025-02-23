@@ -1,30 +1,40 @@
 import traceback, json
 from pyrogram import Client, filters
 from FUNC.usersdb_func import *
-from datetime import date
-from datetime import timedelta
+from datetime import date, timedelta, datetime
 import os
 
 @Client.on_message(filters.command("plan2", [".", "/"]))
 async def cmd_plan2(Client, message):
-    try:  # Outer try
-        # *** 1. Load Configuration ***
-        try:  # Inner try - CORRECT INDENTATION
+    try:  # Outer try encompassing everything except config loading
+        # * 1. Load Configuration *
+        try:
             with open("FILES/config.json", "r", encoding="utf-8") as f:
                 config = json.load(f)
-            OWNER_ID = config["owner_info"]["owner_id"]  # Direct access, no list
-
-        except (FileNotFoundError, json.JSONDecodeError, KeyError) as e:
-            print(f"Config file error: {e}")
-            await message.reply_text("Config file error. Check the logs.", quote=True)  # Quote the original message
+            OWNER_ID = int(config["OWNER_ID"])  # Direct access
+        except FileNotFoundError:
+            print("Config file not found.")
+            await message.reply_text("Config file not found.", quote=True)
+            return
+        except json.JSONDecodeError:
+            print("Invalid JSON in config file.")
+            await message.reply_text("Invalid JSON in config file.", quote=True)
+            return
+        except KeyError as e:
+            print(f"Missing key in config file: {e}")
+            await message.reply_text("Missing key in config file. Check the logs.", quote=True)
+            return
+        except Exception as e:
+            print(f"Unexpected error loading config: {e}")
+            await message.reply_text("Unexpected error loading config. Check the logs.", quote=True)
             return
 
-        # *** 2. Debugging Prints ***
-        print(f"cmd_plan2 triggered")
-        print(f"User ID: {message.from_user.id}")  # Print as integer
+        # * 2. Debugging Prints *
+        print("cmd_plan2 triggered")
+        print(f"User ID: {message.from_user.id}")
         print(f"Owner ID: {OWNER_ID}")
 
-        # *** 3. Admin Check ***
+        # * 3. Admin Check *
         user_id = message.from_user.id  #User Id to check if there's a difference
         if user_id != OWNER_ID:
             resp = """You Don't Have Permission To Use This Command.
@@ -32,13 +42,19 @@ Contact Bot Owner @FNxDANGER"""
             await message.reply_text(resp, message.id, quote=True)  # Quote the original message
             return
 
-        # *** 4. Rest of the command logic ***
-        try:  # Added try-except for the remaining code
+        # * 4. Rest of the command logic *
+        try:
             user_id_str = message.text.split(" ")[1]  # Extract user ID from message
+            try:
+                user_id_to_activate = int(user_id_str)  # Convert to integer immediately
+            except ValueError:
+                await message.reply_text("Invalid user ID provided.", quote=True)
+                return
+
             paymnt_method = "CRYPTO"
-            registration_check = await getuserinfo(user_id_str)
-            registration_check = str(registration_check)
-            if registration_check == "None":
+
+            registration_check = await getuserinfo(user_id_to_activate)
+            if registration_check is None:  #Check if None
                 resp = f"""
 Silver Plan Activation Failed ❌
 ━━━━━━━━━━━━━━
@@ -48,22 +64,18 @@ Reason : Unregistered Users
 
 Status : Failed
 """
-                await message.reply_text(resp, message.id, quote=True) # Quote the original message
+                await message.reply_text(resp, message.id, quote=True)
                 return
 
-            await check_negetive_credits(user_id_str)
-            await getplan2(user_id_str)
+            await check_negetive_credits(user_id_to_activate)
+            await getplan2(user_id_to_activate)
             receipt_id = await randgen(len=10)
-            gettoday = str(date.today()).split("-")
-            yy = gettoday[0]
-            mm = gettoday[1]
-            dd = gettoday[2]
-            today = f"{dd}-{mm}-{yy}"
-            getvalidity = str(date.today() + timedelta(days=15)).split("-")
-            yy = getvalidity[0]
-            mm = getvalidity[1]
-            dd = getvalidity[2]
-            validity = f"{dd}-{mm}-{yy}"
+
+            today_date = date.today()
+            validity_date = today_date + timedelta(days=15)
+
+            today = today_date.strftime("%d-%m-%Y")  # Use strftime
+            validity = validity_date.strftime("%d-%m-%Y")
 
             user_resp = f"""
 Thanks For Purchasing Our Silver Plan ✅
@@ -84,9 +96,10 @@ Have a Good Day .
 - @danger_ccbot
 """
             try:
-                await Client.send_message(user_id_str, user_resp)
+                await Client.send_message(user_id_to_activate, user_resp)
             except Exception as e:
-                print(f"Error sending message: {e}")
+                print(f"Error sending message to user: {e}")
+                await message.reply_text(f"Error sending message to user: {e}", quote=True) # Inform Admin
 
             ad_resp = f"""
 Silver Plan Activated ✅
@@ -96,11 +109,13 @@ Plan Name: Silver Plan For 15 Days
 Plan Expiry: {validity}
 
 Status : Successfull
-        """
-            await message.reply_text(ad_resp, message.id, quote=True)  # Quote the original message
+"""
+            await message.reply_text(ad_resp, message.id, quote=True)
 
-        except Exception as e:  # Catch any errors in the command logic
-            print(f"An error occurred in the command logic: {traceback.format_exc()}")
-            await message.reply_text("An error occurred while processing the command.", quote=True)
-    except:
-        print("I can't read log")
+        except Exception as e:
+            error_message = f"An error occurred: {e}\n{traceback.format_exc()}"
+            print(error_message)
+            await message.reply_text(f"An error occurred: {e}. Check the logs.", quote=True)
+
+    except Exception as e:
+        print(f"Unexpected Error: {e}") # Catch all errors.
