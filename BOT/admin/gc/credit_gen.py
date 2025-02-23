@@ -19,7 +19,7 @@ async def generate_redeem_codes(client, message):
         with open("FILES/config.json", "r", encoding="utf-8") as config_file:
             config = json.load(config_file)
         
-        owner_ids = config.get("7345260405", [])
+        owner_ids = config.get("OWNER_ID", [])
 
         if user_id not in owner_ids:
             await message.reply_text(NO_PERMISSION_MESSAGE, message.id)
