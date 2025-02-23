@@ -13,7 +13,7 @@ stripe.api_key = ""
 async def skTopk(Client, message):
     try:
         user_id     = str(message.from_user.id)
-        OWNER_ID    = json.loads(open("FILES/config.json", "r" , encoding="utf-8").read())["7345260405"]
+        OWNER_ID    = json.loads(open("FILES/config.json", "r" , encoding="utf-8").read())["OWNER_ID"]
         if user_id not in OWNER_ID:
             resp = """<b>You Don't Have Permission To Use This Command.    
 Contact Bot Owner @FNxDANGER</b>"""
