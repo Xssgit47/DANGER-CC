@@ -12,7 +12,7 @@ async def cmd_scr(client, message):
         WELCOME_TEXT = f"""
 <b>Hello <a href="tg://user?id={message.from_user.id}"> {message.from_user.first_name}</a> !
 
-FNxDANGER Checker  Has plenty of Commands . We Have Auth Gates , Charge Gates , Tools And Other Things .
+DANGER Checker  Has plenty of Commands . We Have Auth Gates , Charge Gates , Tools And Other Things .
 
 Click Each of Them Below to Know Them Better .</b>
         """
@@ -43,7 +43,7 @@ async def callback_command(client, message):
         WELCOME_TEXT = f"""
 <b>Hello User !
 
-FNxDANGER Checker  Has plenty of Commands . We Have Auth Gates , Charge Gates , Tools And Other Things .
+DANGER Checker  Has plenty of Commands . We Have Auth Gates , Charge Gates , Tools And Other Things .
 
 Click Each of Them Below to Know Them Better .</b>
         """
@@ -73,13 +73,13 @@ Click Each of Them Below to Know Them Better .</b>
 async def cmd_start(Client, message):
     try:
         text = """<b>
-FNxDANGER Checker  ■□□
+DANGER Checker  ■□□
       </b>"""
         edit = await message.reply_text(text, message.id)
         await asyncio.sleep(0.5)
 
         text = """<b>
-FNxDANGER Checker  ■■■
+DANGER Checker  ■■■
      </b> """
         edit = await Client.edit_message_text(message.chat.id, edit.id, text)
         await asyncio.sleep(0.5)
@@ -87,7 +87,7 @@ FNxDANGER Checker  ■■■
         text = f"""
 <b>🌟 Hello <a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>!</b>
 
-<b>Welcome aboard the FNxDANGER Checker! 🚀</b>
+<b>Welcome aboard the DANGER Checker! 🚀</b>
 
 <b>I am your go-to bot, packed with a variety of gates, tools, and commands to enhance your experience. Excited to see what I can do?</b>
 
