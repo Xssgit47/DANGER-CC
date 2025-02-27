@@ -26,11 +26,11 @@ async def pp_auth_cmd(Client, message):
         if getcc == False:
             resp = f"""<b>
 Gate Name: {gateway} ♻️
-CMD: /b3
+CMD: /au
 
 Message: No CC Found in your input ❌
 
-Usage: /b3 cc|mes|ano|cvv</b>"""
+Usage: /au cc|mes|ano|cvv</b>"""
             await message.reply_text(resp, message.id)
             return
 
