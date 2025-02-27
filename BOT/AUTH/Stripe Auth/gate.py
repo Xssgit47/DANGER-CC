@@ -81,7 +81,7 @@ async def create_cvv_charge(fullz , session):
         return response
 
     except Exception as e:
+    try:
+        return r(e)
+    except:
         return str(e)
-turn str(e)
-r(e)
-turn str(e)
