@@ -24,6 +24,7 @@ def gets(s, start, end):
 
 
 async def create_cvv_charge(fullz , session):
+             logging.info(f"Starting create_cvv_charge for {fullz}") #ADDED LOGGING
     try:
         cc , mes , ano , cvv = fullz.split("|")
         user_agent          = UserAgent().random
@@ -57,8 +58,8 @@ async def create_cvv_charge(fullz , session):
             # print(id)
         except:
             return response.text
-        
- logging.info(f"Starting create_cvv_charge for {fullz}") #ADDED LOGGING
+
+            
        params = {
              't': '1740664323418',
          }
