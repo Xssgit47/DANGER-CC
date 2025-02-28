@@ -12,7 +12,7 @@ async def get_charge_resp(result, user_id, fullcc):
             hits     = "NO"
         
             if (
-                    "Amount must be at least $4.00 hkd" in result
+                    "Amount must be at least $100 hkd" in result
                 ):
                     status = "𝐀𝐩𝐩𝐫𝐨𝐯𝐞𝐝 ✅"
                     # response = "Approved ✅"
