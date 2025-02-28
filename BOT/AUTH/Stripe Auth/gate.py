@@ -80,8 +80,7 @@ async def create_cvv_charge(fullz , session):
         await asyncio.sleep(0.5)
         return response
 
-    except Exception as e:
-       try:
-        return r(e)
-       except:
-        return str(e)
+         except Exception as e:
+         return str(e)
+     
+
